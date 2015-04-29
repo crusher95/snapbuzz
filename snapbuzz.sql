@@ -1,0 +1,117 @@
+-- phpMyAdmin SQL Dump
+-- version 4.1.14
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Apr 22, 2015 at 08:33 PM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `snapbuzz`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `album`
+--
+
+CREATE TABLE IF NOT EXISTS `album` (
+  `albumid` bigint(16) NOT NULL AUTO_INCREMENT,
+  `SnapID` bigint(15) NOT NULL,
+  `aname` varchar(100) NOT NULL,
+  `time` bigint(11) NOT NULL,
+  `description` text NOT NULL,
+  `thumbnail` varchar(100) NOT NULL,
+  PRIMARY KEY (`albumid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=887996391897 ;
+
+--
+-- Dumping data for table `album`
+--
+
+INSERT INTO `album` (`albumid`, `SnapID`, `aname`, `time`, `description`, `thumbnail`) VALUES
+(887996391877, 23081429428307, 'good times', 1429638429, 'This is my memoir of good times', 'WIN_20150323_153334.JPG');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `uploads`
+--
+
+CREATE TABLE IF NOT EXISTS `uploads` (
+  `imageid` bigint(15) NOT NULL AUTO_INCREMENT,
+  `albumid` bigint(16) NOT NULL,
+  `image` varchar(70) NOT NULL,
+  `time` bigint(20) NOT NULL,
+  `year` int(4) NOT NULL,
+  PRIMARY KEY (`imageid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=ascii AUTO_INCREMENT=23081429428386 ;
+
+--
+-- Dumping data for table `uploads`
+--
+
+INSERT INTO `uploads` (`imageid`, `albumid`, `image`, `time`, `year`) VALUES
+(23081429428353, 887996391877, 'WIN_20150323_153334.JPG', 1429638429, 2015),
+(23081429428354, 887996391877, 'WIN_20150328_040242.JPG', 1429638429, 2015),
+(23081429428355, 887996391877, 'WIN_20150328_040246.JPG', 1429638430, 2015),
+(23081429428356, 887996391877, 'WIN_20150328_040254.JPG', 1429638430, 2015),
+(23081429428357, 887996391877, 'WIN_20150328_040300.JPG', 1429638430, 2015),
+(23081429428358, 887996391877, 'WIN_20150328_040307.JPG', 1429638430, 2015),
+(23081429428359, 887996391877, 'WIN_20150328_040314.JPG', 1429638430, 2015),
+(23081429428360, 887996391877, 'WIN_20150328_040316.JPG', 1429638430, 2015),
+(23081429428361, 887996391877, 'WIN_20150328_040318.JPG', 1429638430, 2015),
+(23081429428362, 887996391877, 'WIN_20150328_040322.JPG', 1429638430, 2015),
+(23081429428363, 887996391877, 'WIN_20150328_040324.JPG', 1429638430, 2015),
+(23081429428364, 887996391877, 'WIN_20150328_040326.JPG', 1429638430, 2015),
+(23081429428365, 887996391877, 'WIN_20150328_040328.JPG', 1429638430, 2015),
+(23081429428366, 887996391877, 'WIN_20150328_040331.JPG', 1429638430, 2015),
+(23081429428367, 887996391877, 'WIN_20150328_040334.JPG', 1429638430, 2015),
+(23081429428368, 887996391877, 'WIN_20150328_040336.JPG', 1429638430, 2015),
+(23081429428369, 887996391877, 'WIN_20150328_041054.JPG', 1429638430, 2015),
+(23081429428370, 887996391877, 'WIN_20150329_014434.JPG', 1429638430, 2015),
+(23081429428371, 887996391893, 'author-avatar.jpg', 1429641316, 2015),
+(23081429428372, 887996391893, 'location-map.jpg', 1429641316, 2015),
+(23081429428373, 887996391893, 'logo.png', 1429641316, 2015);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `SnapID` bigint(15) unsigned NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `password` varchar(60) DEFAULT NULL,
+  `mobile` bigint(10) NOT NULL,
+  `avatar` varchar(50) NOT NULL,
+  PRIMARY KEY (`SnapID`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=ascii;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`SnapID`, `name`, `email`, `password`, `mobile`, `avatar`) VALUES
+(21931429428564, 'NIKHIL KAUL', 'nikhilhostel@gmail.com', '716f3ac1e7954ecf0645ca06cf4342bb079d66ed', 9812031235, 'profile.png'),
+(23081429428307, 'Utkarsh ', 'dhawan.utkarsh@gmail.com', '10f25021faa0efcb6ddf4809479bc521d984a61d', 8879963918, 'profile.png'),
+(31051429428478, 'Amit', 'amit.hostel@gmail.com', '4f37034621eac026399be5958cb30324dadd5f6e', 9812031231, 'profile.png'),
+(77371429428527, 'Karan', 'karanhostel@gmail.com', '82f53965da9e1afb215d915e82b9aea8fbd663fa', 9812031233, 'profile.png');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

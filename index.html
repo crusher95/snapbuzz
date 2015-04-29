@@ -1,0 +1,54 @@
+<?php
+session_start();
+if (!empty($_SESSION['user']['SnapID'])) {
+   header("Location:user/");
+}
+?>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>SnapBuzz-HomePage for the most awesome website on earth.</title>->
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+		<script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-wide.css" />
+			<link rel="stylesheet" href="css/style-noscript.css" />
+		</noscript>
+		<script type="text/javascript" charset="utf-8">
+  			$(document).ready(function(){
+    		$("a[rel^='prettyPhoto']").prettyPhoto();
+  			});
+		</script>
+	<link rel="icon" type="image/png" href="images/favicon.png">
+	</head>
+	<body class="loading">
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
+
+					<header id="header">
+						<h1>SnapBuzz</h1>
+						<p><a href="login.php?iframe=true&width=40%&height=80%" rel="prettyPhoto[iframes]" title="Login" class="fb">Login</a> | <a href="register.php?iframe=true&width=40%&height=80%" rel="prettyPhoto[iframes]" title="Register" class="fb">Register</a></p>
+						<nav>
+							<ul>
+								<li><a href="https://github.com/crusher95/snapbuzz" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
+								<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<span class="copyright">&copy; SnapBuzz: All Rights Reserved.</span>
+					</footer>
+				
+			</div>
+		</div>
+	</body>
+</html>
